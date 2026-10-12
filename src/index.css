@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --chocolate: #593820;
+  --teddy: #805735;
+  --champagne: #C7AD93;
+  --ivory: #F7F2EA;
+  --cream: #FFFCF7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    color: rgba(89, 56, 32, 0.88);
+    background-color: var(--ivory);
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--chocolate);
+    font-weight: 600;
+  }
+}
+
+/* Hairline dividers & ornament motifs */
+.hairline-divider {
+  height: 1px;
+  background-color: rgba(199, 173, 147, 0.4);
+  width: 100%;
+}
+
+.ornament-diamond {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ornament-diamond::before,
+.ornament-diamond::after {
+  content: '';
+  height: 1px;
+  width: 36px;
+  background-color: var(--champagne);
+  display: inline-block;
+}
+
+/* Custom scrollbar matching brand */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--champagne);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teddy);
+}
+
+/* Subtle image zoom transition */
+.img-zoom {
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.group:hover .img-zoom {
+  transform: scale(1.04);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
